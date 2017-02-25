@@ -1,0 +1,6 @@
+/output/
+/.toolkitList
+/toolkit.xml
+/com.ibm.streamsx.watsonexplorer
+/opt
+.gradle

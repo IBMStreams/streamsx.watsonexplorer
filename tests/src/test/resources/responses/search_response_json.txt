@@ -1,0 +1,143 @@
+{
+  "es_apiResponse": {
+    "es_evaluationTruncation": false,
+    "es_queryEvaluationTime": 12,
+    "es_totalResults": 1,
+    "es_totalResultsType": "estimated",
+    "es_numberOfAvailableResults": 1,
+    "es_numberOfEstimatedResults": 1,
+    "es_query": [
+      {
+        "role": "request",
+        "searchTerms": "test"
+      },
+      {
+        "role": "full",
+        "searchTerms": "test"
+      }
+    ],
+    "es_resultGroups": {
+      "es_resultGroup": {
+        "id": "Y29tLmlibS5lcy5zZWFyY2gucmVzdWx0Z3JvdXAuQ2F0Y2hBbGw=",
+        "label": "CATCH ALL",
+        "href": "http://fakeurl"
+      }
+    },
+    "es_startIndex": 0,
+    "es_itemsPerPage": 1,
+    "es_result": {
+      "es_title": "<SPAN class=\"OFHighlightTerm1\">test</SPAN>-note.html",
+      "es_link": [
+        {
+          "rel": "alternate",
+          "href": "http://fakeurl",
+          "type": "text/html",
+          "hreflang": "en"
+        },
+        {
+          "rel": "via",
+          "href": "http://fakeurl",
+          "hreflang": "en"
+        }
+      ],
+      "es_relevance": 43.013882637023926,
+      "es_updated": "2017-01-01T05:00:00Z",
+      "es_id": "file:///fakefile",
+      "es_thumbnail": {
+        "href": "http://fakeurl",
+        "rel": "via",
+        "type": "image/jpeg"
+      },
+      "es_collection": "col_12345",
+      "es_language": "en",
+      "es_documentSource": "unixfs",
+      "es_firstOfASite": true,
+      "es_author": {
+        "es_name": null,
+        "es_uri": null,
+        "es_email": null
+      },
+      "ibmsc_field": [
+        {
+          "id": "directory",
+          "type": "string",
+          "contentSearchable": false,
+          "fieldSearchable": true,
+          "parametric": false,
+          "returnable": true,
+          "sortable": false,
+          "supportExactMatch": true,
+          "#text": "fake"
+        },
+        {
+          "id": "filename",
+          "type": "string",
+          "contentSearchable": false,
+          "fieldSearchable": true,
+          "parametric": false,
+          "returnable": true,
+          "sortable": false,
+          "supportExactMatch": true,
+          "#text": "fake"
+        },
+        {
+          "id": "date",
+          "type": "date",
+          "contentSearchable": false,
+          "fieldSearchable": false,
+          "parametric": true,
+          "returnable": true,
+          "sortable": false,
+          "#text": "1483246800000"
+        },
+        {
+          "id": "filesize",
+          "type": "double",
+          "contentSearchable": false,
+          "fieldSearchable": false,
+          "parametric": true,
+          "returnable": true,
+          "sortable": false,
+          "#text": "888"
+        },
+        {
+          "id": "modifieddate",
+          "type": "date",
+          "contentSearchable": false,
+          "fieldSearchable": false,
+          "parametric": true,
+          "returnable": true,
+          "sortable": false,
+          "#text": "1486851485000"
+        },
+        {
+          "id": "title",
+          "type": "string",
+          "contentSearchable": true,
+          "fieldSearchable": true,
+          "parametric": false,
+          "returnable": true,
+          "sortable": false,
+          "supportExactMatch": false,
+          "#text": "<SPAN class=\"OFHighlightTerm1\">test</SPAN>-note.html"
+        },
+        {
+          "id": "extension",
+          "type": "string",
+          "contentSearchable": false,
+          "fieldSearchable": true,
+          "parametric": false,
+          "returnable": true,
+          "sortable": false,
+          "supportExactMatch": true,
+          "#text": ".html"
+        }
+      ],
+      "es_summary": "",
+      "es_occurrence": true,
+      "es_resultGroupRef": {
+        "id": "Y29tLmlibS5lcy5zZWFyY2gucmVzdWx0Z3JvdXAuQ2F0Y2hBbGw="
+      }
+    }
+  }
+}

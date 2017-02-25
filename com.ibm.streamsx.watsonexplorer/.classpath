@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="impl/java/src">
+		<attributes>
+			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="impl/java/test"/>
+	<classpathentry exported="true" kind="con" path="com.ibm.streams.java/com.ibm.streams.operator"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="opt/downloaded/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="opt/downloaded/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="opt/downloaded/fluent-hc-4.5.2.jar"/>
+	<classpathentry kind="lib" path="opt/downloaded/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="opt/downloaded/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="opt/downloaded/gson-2.8.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry kind="var" path="STREAMS_JAVA_FUNCTIONAL_API"/>
+	<classpathentry kind="output" path="impl/java/bin"/>
+</classpath>

@@ -1,0 +1,36 @@
+namespace com.ibm.streamsx.watsonexplorer.sample ;
+
+use com.ibm.streamsx.watsonexplorer::AnalyzeText ;
+
+composite AnalyzeTextSample
+{
+	graph
+		(stream<rstring text> Beacon_1_out0) as Beacon_1 = Beacon()
+		{
+			param
+				iterations : 1u;
+			output Beacon_1_out0:
+				text = "My car is broken.";
+		}
+
+		(stream<rstring result> AnalyzeText_2_out0) as AnalyzeText_2 =
+			AnalyzeText(Beacon_1_out0)
+		{
+			param
+				host : getSubmissionTimeValue("host");
+				port : (int32)getSubmissionTimeValue("port") ;
+				collectionName : "sample";
+				textAttr : text ;
+		}
+
+		() as Custom_3 = Custom(AnalyzeText_2_out0)
+		{
+			logic
+				onTuple AnalyzeText_2_out0:
+				{
+					println(result);
+				}
+		}
+
+}
+
