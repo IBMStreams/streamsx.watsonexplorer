@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document Id="resturi" Type="NORMAL">
+    <Content Truncated="false" Encoded="false">My car is broken</Content>
+    <Metadata>
+        <Fields>
+            <Field Name="date">1487346317000</Field>
+            <Field Name="$source">api</Field>
+            <Field Name="$language">en</Field>
+            <Field Name="$charset">UTF-16</Field>
+            <Field Name="$doctype">text/plain</Field>
+        </Fields>
+        <Facets>
+            <Facet>
+                <Path>date</Path>
+                <Path>2017</Path>
+                <Path>2</Path>
+                <Path>17</Path>
+                <Path>10</Path>
+                <Path>45</Path>
+            </Facet>
+            <Facet Begin="3" End="6">
+                <Path>_word</Path>
+                <Path>noun</Path>
+                <Path>general</Path>
+                <Keyword>car</Keyword>
+            </Facet>
+            <Facet Begin="7" End="9">
+                <Path>_word</Path>
+                <Path>verb</Path>
+                <Keyword>be</Keyword>
+            </Facet>
+            <Facet Begin="10" End="16">
+                <Path>_word</Path>
+                <Path>verb</Path>
+                <Keyword>break</Keyword>
+            </Facet>
+        </Facets>
+    </Metadata>
+</Document>

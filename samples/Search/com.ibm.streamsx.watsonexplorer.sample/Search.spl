@@ -1,0 +1,36 @@
+namespace com.ibm.streamsx.watsonexplorer.sample ;
+
+use com.ibm.streamsx.watsonexplorer::Search ;
+
+/*
+ * Demonstrates how to use the Search operator.
+ */
+composite SearchSample
+{
+	graph
+		(stream<rstring result> Search_1_out0) as Search_1 = Search(Beacon_2_out0)
+		{
+			param
+				host : getSubmissionTimeValue("host") ;
+				port :  (int32)getSubmissionTimeValue("port");
+				collectionName : "sample";
+		}
+
+		(stream<rstring query> Beacon_2_out0) as Beacon_2 = Beacon()
+		{
+			param
+				iterations : 1u;
+			output Beacon_2_out0:
+				query = "car";
+		}
+
+		() as Custom_3 = Custom(Search_1_out0)
+		{
+			logic
+				onTuple Search_1_out0:
+				{
+					println(result);
+				}
+		}
+}
+
