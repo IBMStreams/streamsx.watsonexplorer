@@ -1,0 +1,37 @@
+namespace com.ibm.streamsx.watsonexplorer.sample ;
+
+use com.ibm.streamsx.watsonexplorer::WatsonExplorerQuery ;
+
+composite WEXQuerySample
+{
+	graph
+		(stream<rstring query> Beacon_1_out0) as Beacon_1 = Beacon()
+		{
+			param
+				iterations : 1u;
+			output Beacon_1_out0:
+				query = "car";
+		}
+
+		(stream<rstring result> WatsonExplorerQuery_2_out0) as
+			WatsonExplorerQuery_2 = WatsonExplorerQuery(Beacon_1_out0)
+		{
+			param
+				host : getSubmissionTimeValue("host") ;
+				port : (int32)getSubmissionTimeValue("port") ;
+				username : getSubmissionTimeValue("username") ;
+				password : getSubmissionTimeValue("password");
+				sources : "auto-classify" ;
+				
+		}
+
+		() as Custom_3 = Custom(WatsonExplorerQuery_2_out0)
+		{
+			logic
+				onTuple WatsonExplorerQuery_2_out0:
+				{
+					println(result);
+				}
+		}
+}
+
