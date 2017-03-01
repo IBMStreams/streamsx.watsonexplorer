@@ -1,4 +1,4 @@
-package com.ibm.streams.watsonexplorer.client;
+package com.ibm.streamsx.watsonexplorer.client;
 
 import java.io.StringReader;
 
@@ -16,9 +16,9 @@ import org.apache.http.client.fluent.Response;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
-import com.ibm.streams.watsonexplorer.HTTPRestException;
-import com.ibm.streams.watsonexplorer.RestParameters;
-import com.ibm.streams.watsonexplorer.SearchResult;
+import com.ibm.streamsx.watsonexplorer.HTTPRestException;
+import com.ibm.streamsx.watsonexplorer.RestParameters;
+import com.ibm.streamsx.watsonexplorer.SearchResult;
 
 public class WexSearchResult implements SearchResult {
 

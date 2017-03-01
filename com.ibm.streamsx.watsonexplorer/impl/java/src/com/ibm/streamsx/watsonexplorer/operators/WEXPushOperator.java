@@ -1,4 +1,4 @@
-package com.ibm.streams.watsonexplorer.operators;
+package com.ibm.streamsx.watsonexplorer.operators;
 
 import java.util.Set;
 
@@ -18,8 +18,8 @@ import com.ibm.streams.operator.model.InputPorts;
 import com.ibm.streams.operator.model.Libraries;
 import com.ibm.streams.operator.model.OutputPortSet;
 import com.ibm.streams.operator.model.OutputPortSet.WindowPunctuationOutputMode;
-import com.ibm.streams.watsonexplorer.RestParameters;
-import com.ibm.streams.watsonexplorer.client.EnqueueData.EnqueueDataOptions;
+import com.ibm.streamsx.watsonexplorer.RestParameters;
+import com.ibm.streamsx.watsonexplorer.client.EnqueueData.EnqueueDataOptions;
 import com.ibm.streams.operator.model.OutputPorts;
 import com.ibm.streams.operator.model.Parameter;
 import com.ibm.streams.operator.model.PrimitiveOperator;

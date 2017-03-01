@@ -1,4 +1,4 @@
-package com.ibm.streams.watsonexplorer.ca.client;
+package com.ibm.streamsx.watsonexplorer.ca.client;
 
 import java.io.ByteArrayInputStream;
 
@@ -14,10 +14,10 @@ import org.w3c.dom.NodeList;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
-import com.ibm.streams.watsonexplorer.HTTPRestException;
-import com.ibm.streams.watsonexplorer.RestParameters;
-import com.ibm.streams.watsonexplorer.SearchResult;
-import com.ibm.streams.watsonexplorer.WEXConstants;
+import com.ibm.streamsx.watsonexplorer.HTTPRestException;
+import com.ibm.streamsx.watsonexplorer.RestParameters;
+import com.ibm.streamsx.watsonexplorer.SearchResult;
+import com.ibm.streamsx.watsonexplorer.WEXConstants;
 
 public class CASearchResult implements SearchResult {
 

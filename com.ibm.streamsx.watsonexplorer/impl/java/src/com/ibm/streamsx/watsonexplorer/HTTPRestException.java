@@ -1,4 +1,4 @@
-package com.ibm.streams.watsonexplorer;
+package com.ibm.streamsx.watsonexplorer;
 
 import org.apache.http.StatusLine;
 

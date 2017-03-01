@@ -1,4 +1,4 @@
-package com.ibm.streams.watsonexplorer.client;
+package com.ibm.streamsx.watsonexplorer.client;
 
 import java.io.ByteArrayInputStream;
 import java.net.URI;
@@ -15,7 +15,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import com.ibm.streams.watsonexplorer.HTTPRestException;
+import com.ibm.streamsx.watsonexplorer.HTTPRestException;
 
 public class EnqueueData {
 
