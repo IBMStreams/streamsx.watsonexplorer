@@ -1,4 +1,4 @@
-package com.ibm.streamsx.watsonexplorer.operators;
+package com.ibm.streams.watsonexplorer.operators;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,10 +25,10 @@ import com.ibm.streams.operator.model.InputPorts;
 import com.ibm.streams.operator.model.Libraries;
 import com.ibm.streams.operator.model.OutputPortSet;
 import com.ibm.streams.operator.model.OutputPortSet.WindowPunctuationOutputMode;
-import com.ibm.streamsx.watsonexplorer.RestParameters;
-import com.ibm.streamsx.watsonexplorer.WEXConnection;
-import com.ibm.streamsx.watsonexplorer.ca.client.CollectionsUtil;
-import com.ibm.streamsx.watsonexplorer.ca.client.ContentAnalytics;
+import com.ibm.streams.watsonexplorer.RestParameters;
+import com.ibm.streams.watsonexplorer.WEXConnection;
+import com.ibm.streams.watsonexplorer.ca.client.CollectionsUtil;
+import com.ibm.streams.watsonexplorer.ca.client.ContentAnalytics;
 import com.ibm.streams.operator.model.OutputPorts;
 import com.ibm.streams.operator.model.Parameter;
 

@@ -1,4 +1,4 @@
-package com.ibm.streamsx.watsonexplorer;
+package com.ibm.streams.watsonexplorer;
 
 import org.apache.http.auth.Credentials;
 

@@ -1,4 +1,4 @@
-package com.ibm.streamsx.watsonexplorer.operators;
+package com.ibm.streams.watsonexplorer.operators;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import com.ibm.streams.operator.StreamingInput;
 import com.ibm.streams.operator.Tuple;
 import com.ibm.streams.operator.model.Libraries;
 import com.ibm.streams.operator.model.Parameter;
-import com.ibm.streamsx.watsonexplorer.RestParameters;
-import com.ibm.streamsx.watsonexplorer.WEXConnection;
-import com.ibm.streamsx.watsonexplorer.client.WatsonExplorer;
+import com.ibm.streams.watsonexplorer.RestParameters;
+import com.ibm.streams.watsonexplorer.WEXConnection;
+import com.ibm.streams.watsonexplorer.client.WatsonExplorer;
 
 @Libraries({"opt/downloaded/*", "impl/lib/*"})
 public class AbstractWEXOperator extends AbstractOperator {

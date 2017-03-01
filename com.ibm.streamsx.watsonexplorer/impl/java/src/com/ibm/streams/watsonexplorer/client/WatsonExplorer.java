@@ -1,12 +1,12 @@
-package com.ibm.streamsx.watsonexplorer.client;
+package com.ibm.streams.watsonexplorer.client;
 
 import org.apache.http.client.fluent.Response;
 
-import com.ibm.streamsx.watsonexplorer.AbstractRestCall;
-import com.ibm.streamsx.watsonexplorer.RestParameters;
-import com.ibm.streamsx.watsonexplorer.SearchResult;
-import com.ibm.streamsx.watsonexplorer.WEXConnection;
-import com.ibm.streamsx.watsonexplorer.client.EnqueueData.EnqueueDataOptions;
+import com.ibm.streams.watsonexplorer.AbstractRestCall;
+import com.ibm.streams.watsonexplorer.RestParameters;
+import com.ibm.streams.watsonexplorer.SearchResult;
+import com.ibm.streams.watsonexplorer.WEXConnection;
+import com.ibm.streams.watsonexplorer.client.EnqueueData.EnqueueDataOptions;
 
 public class WatsonExplorer extends AbstractRestCall {
 

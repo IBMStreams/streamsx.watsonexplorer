@@ -1,4 +1,4 @@
-package com.ibm.streamsx.watsonexplorer.operators;
+package com.ibm.streams.watsonexplorer.operators;
 
 import java.util.Set;
 

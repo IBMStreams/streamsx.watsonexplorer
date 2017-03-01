@@ -1,4 +1,4 @@
-package com.ibm.streamsx.watsonexplorer.ca.client;
+package com.ibm.streams.watsonexplorer.ca.client;
 
 import java.io.ByteArrayInputStream;
 import java.util.HashMap;
@@ -11,8 +11,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import com.ibm.streamsx.watsonexplorer.RestParameters;
-import com.ibm.streamsx.watsonexplorer.WEXConnection;
+import com.ibm.streams.watsonexplorer.RestParameters;
+import com.ibm.streams.watsonexplorer.WEXConnection;
 
 public class CollectionsUtil {
 

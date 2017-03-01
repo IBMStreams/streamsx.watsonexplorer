@@ -1,14 +1,14 @@
-package com.ibm.streamsx.watsonexplorer.ca.client;
+package com.ibm.streams.watsonexplorer.ca.client;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.fluent.Response;
 import org.apache.http.util.EntityUtils;
 
-import com.ibm.streamsx.watsonexplorer.AbstractRestCall;
-import com.ibm.streamsx.watsonexplorer.RestParameters;
-import com.ibm.streamsx.watsonexplorer.SearchResult;
-import com.ibm.streamsx.watsonexplorer.WEXConnection;
+import com.ibm.streams.watsonexplorer.AbstractRestCall;
+import com.ibm.streams.watsonexplorer.RestParameters;
+import com.ibm.streams.watsonexplorer.SearchResult;
+import com.ibm.streams.watsonexplorer.WEXConnection;
 
 public class ContentAnalytics extends AbstractRestCall {
 

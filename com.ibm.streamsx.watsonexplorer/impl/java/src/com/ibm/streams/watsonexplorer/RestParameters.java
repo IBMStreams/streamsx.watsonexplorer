@@ -1,4 +1,4 @@
-package com.ibm.streamsx.watsonexplorer;
+package com.ibm.streams.watsonexplorer;
 
 import java.util.Arrays;
 import java.util.HashMap;
