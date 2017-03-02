@@ -37,6 +37,7 @@ public class WexSearchResult implements SearchResult {
 		this.allParameters = new RestParameters(parameters);
 		this.allParameters.putAll(wex.getStaticParameters());
 		this.transientParameters = new RestParameters(parameters);
+		this.isBrowse = isBrowse;
 		
 		HttpResponse httpResponse = resp.returnResponse();
 		StatusLine status = httpResponse.getStatusLine();
