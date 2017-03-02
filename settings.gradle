@@ -19,3 +19,4 @@ include 'services:webservice'
 rootProject.name = 'streamsx.watsonexplorer'
 
 include 'com.ibm.streamsx.watsonexplorer'
+include 'tests'
