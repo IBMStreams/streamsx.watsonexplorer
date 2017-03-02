@@ -1,8 +1,9 @@
 # streamsx.watsonexplorer
 Toolkit for accessing data and analytics results from IBM Watson Explorer (formerly known as IBM Infosphere Data Explorer)
 
-Please add information about the version of Watson Explorer that this is going to support.
-And provide migration information from using the Data Explorer toolkit.
+This toolkit has been developed and tested against Watson Explorer v11.0. 
+
+The SPLDoc for this toolkit can be found here here: [SPLDoc](https://ibmstreams.github.io/streamsx.watsonexplorer/spldoc/html/index.html)
 
 # Build
 
