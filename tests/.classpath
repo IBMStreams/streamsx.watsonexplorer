@@ -5,7 +5,6 @@
 	<classpathentry kind="con" path="com.ibm.streams.java/com.ibm.streams.operator"/>
 	<classpathentry kind="var" path="STREAMS_JAVA_FUNCTIONAL_API"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="/com.ibm.streamsx.watsonexplorer/lib/com.ibm.streamsx.watsonexplorer.jar"/>
 	<classpathentry kind="lib" path="build/test/activation-1.1.jar"/>
 	<classpathentry kind="lib" path="build/test/bcmail-jdk15on-1.52.jar"/>
 	<classpathentry kind="lib" path="build/test/bcpkix-jdk15on-1.52.jar"/>
@@ -78,5 +77,6 @@
 	<classpathentry kind="lib" path="build/test/util-stats_2.11-6.32.0.jar"/>
 	<classpathentry kind="lib" path="build/test/xerces-2.4.0.jar"/>
 	<classpathentry kind="lib" path="build/test/xercesImpl-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/com.ibm.streamsx.watsonexplorer/impl/lib/com.ibm.streamsx.watsonexplorer.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

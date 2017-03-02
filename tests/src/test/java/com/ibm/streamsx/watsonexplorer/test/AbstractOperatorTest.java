@@ -22,6 +22,7 @@ import org.junit.Rule;
 import org.mockserver.client.server.MockServerClient;
 import org.mockserver.junit.MockServerRule;
 
+import com.ibm.jvm.packed.types.PackedBoolean.Array;
 import com.ibm.streams.operator.Operator;
 import com.ibm.streams.operator.StreamSchema;
 import com.ibm.streams.operator.Type;
@@ -77,6 +78,10 @@ public abstract class AbstractOperatorTest {
 		opParams.put("port", getPort());
 		
 		client = new MockServerClient(getHost(), getPort());
+		initClient();
+	}
+
+	protected void initClient() {
 		// operator will always query for the collection ID
 		client
 			.when(request()
@@ -86,7 +91,7 @@ public abstract class AbstractOperatorTest {
 					.withStatusCode(200)
 					.withBody(collectionResponseStr));;
 	}
-
+	
 	protected int getPort() {
 		return mockServerRule.getPort();
 	}
@@ -96,13 +101,18 @@ public abstract class AbstractOperatorTest {
 	}
 	
 	protected void runTopology(SPLStream inputStream, String expectedResult, Class<? extends Operator> opClazz) throws Exception {
+		runTopology(inputStream, new String[]{expectedResult}, opClazz);
+	}
+	
+	protected void runTopology(SPLStream inputStream, String[] expectedResults, Class<? extends Operator> opClazz) throws Exception {
 		SPLStream splResultStream = JavaPrimitive.invokeJavaPrimitive(opClazz, inputStream, OUTPUT_SCHEMA, opParams);
 		TStream<String> resultStream = SPLStreams.toStringStream(splResultStream);
 		
 		StreamsContext<?> context = StreamsContextFactory.getStreamsContext(com.ibm.streamsx.topology.context.StreamsContext.Type.EMBEDDED_TESTER); //.submit(topo, new HashMap<String, Object>()).get();
-		Condition<List<String>> contents = topo.getTester().completeAndTestStringOutput(context, resultStream, 5, TimeUnit.SECONDS, expectedResult);
+		Condition<List<String>> contents = topo.getTester().completeAndTestStringOutput(context, resultStream, 5, TimeUnit.SECONDS, expectedResults);
 		
 		Assert.assertTrue(contents.getResult().size() > 0);
-		assertTrue(contents.getResult().get(0), contents.valid());
+		assertTrue(contents.getResult().toString(), contents.valid());
 	}
 }
+

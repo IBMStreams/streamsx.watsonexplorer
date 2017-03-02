@@ -150,8 +150,8 @@ public class WEXPushOperator extends AbstractWEXOperator {
 
 		String data = dataAttr == null ? tuple.getString(DEFAULT_DATA_ATTR_NAME) : dataAttr.getValue(tuple);
 		String url = urlAttr == null ? tuple.getString(DEFAULT_URL_ATTR_NAME) : urlAttr.getValue(tuple);
-		String synchronization = processing == "fast" ? "none" : "indexed";
-		String enqueueType = duplicates == "overwrite" ? "none" : "reenqueued";
+		String synchronization = processing.equals("normal") ? "indexed" : "none";
+		String enqueueType = duplicates.equals("overwrite") ? "reenqueued" : "none";
 
 		EnqueueDataOptions options = new EnqueueDataOptions();
 		options.setData(data);

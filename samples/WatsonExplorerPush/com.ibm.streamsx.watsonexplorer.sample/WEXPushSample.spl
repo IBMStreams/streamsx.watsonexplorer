@@ -1,0 +1,28 @@
+namespace com.ibm.streamsx.watsonexplorer.sample ;
+
+use com.ibm.streamsx.watsonexplorer::WatsonExplorerPush ;
+
+composite WEXPushSample
+{
+	graph
+		(stream<rstring data, rstring url> Beacon_1_out0) as Beacon_1 = Beacon()
+		{
+			param
+				iterations : 1u;
+			output Beacon_1_out0:
+				data = "This is test data that is being pushed into Watson Explorer.",
+				url = "unique_id_" + (rstring)random();
+		}
+
+		() as
+			WatsonExplorerQuery_2 = WatsonExplorerPush(Beacon_1_out0)
+		{
+			param
+				host : getSubmissionTimeValue("host") ;
+				port : (int32)getSubmissionTimeValue("port") ;
+				username : getSubmissionTimeValue("username") ;
+				password : getSubmissionTimeValue("password");
+				collection : "test" ;
+		}
+}
+

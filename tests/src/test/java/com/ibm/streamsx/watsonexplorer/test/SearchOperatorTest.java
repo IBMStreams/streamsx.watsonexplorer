@@ -169,7 +169,7 @@ public class SearchOperatorTest extends AbstractOperatorTest {
 		SPLStream splStream = SPLStreams.convertStream(src, new StringStreamToSPLQuery(), Type.Factory.getStreamSchema("tuple<rstring query>"));
 		
 		opParams.put("collectionName", COLLECTION_NAME);
-		opParams.put("additionalParams", Arrays.asList("foo=12345", "bar=98765").toArray());
+		opParams.put("additionalParams", new String[] {"foo=12345", "bar=98765"});
 	
 		runTopology(splStream, searchResponseAtomXMLStr, CASearchOperator.class);
 	}

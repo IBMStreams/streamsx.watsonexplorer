@@ -5,7 +5,6 @@
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="impl/java/test"/>
 	<classpathentry exported="true" kind="con" path="com.ibm.streams.java/com.ibm.streams.operator"/>
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
