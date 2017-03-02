@@ -1,5 +1,5 @@
 task docs(type:Exec) {
-    commandLine System.getenv("STREAMS_INSTALL") + '/bin/spl-make-doc', '-i', 'com.ibm.streamsx.watsonexplorer', '--output-dir', 'docs/spldoc', '--doc-title', "'Watson Explorer Toolkit'"
+    commandLine System.getenv("STREAMS_INSTALL") + '/bin/spl-make-doc', '-i', 'com.ibm.streamsx.watsonexplorer', '--output-dir', 'docs/spldoc', '--doc-title', "Watson Explorer Toolkit"
 }
 
 task clean {
