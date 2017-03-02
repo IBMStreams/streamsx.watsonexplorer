@@ -1,17 +1,8 @@
 task docs(type:Exec) {
-<<<<<<< Upstream, based on origin/master
     commandLine System.getenv("STREAMS_INSTALL") + '/bin/spl-make-doc', '-i', 'com.ibm.streamsx.watsonexplorer', '--output-dir', 'docs/spldoc', '--doc-title', "'Watson Explorer Toolkit'"
 }
 
 task clean {
   delete "docs/spldoc"
-=======
-    commandLine System.getenv("STREAMS_INSTALL") + '/bin/spl-make-doc', '-i', 'com.ibm.streamsx.watsonexplorer', '--output-dir', 'doc/spldoc', '--doc-title', "'Watson Explorer Toolkit'"
-}
-
-task clean {
-  delete "doc/spldoc"
->>>>>>> b885046 Add spldoc
-}
 
 //build.finializedby docs
