@@ -1,0 +1,110 @@
+{
+  "es_apiResponse": {
+    "es_indexFields": {
+      "es_indexField": [
+        {
+          "name": "body",
+          "returnable": false,
+          "freeTextSearchable": true,
+          "inSummary": true,
+          "fieldSearchable": false,
+          "expansionEnabled": false,
+          "textSortable": false,
+          "analyzable": true
+        },
+        {
+          "name": "date",
+          "returnable": true,
+          "freeTextSearchable": false,
+          "fieldSearchable": false,
+          "expansionEnabled": false,
+          "parametricSearchType": "Date",
+          "textSortable": false,
+          "analyzable": false
+        },
+        {
+          "name": "directory",
+          "returnable": true,
+          "freeTextSearchable": false,
+          "fieldSearchable": true,
+          "exactMatch": true,
+          "caseSensitive": false,
+          "spellSuggestionEnabled": true,
+          "expansionEnabled": false,
+          "textSortable": false,
+          "analyzable": false
+        },
+        {
+          "name": "extension",
+          "returnable": true,
+          "freeTextSearchable": false,
+          "fieldSearchable": true,
+          "exactMatch": true,
+          "caseSensitive": false,
+          "spellSuggestionEnabled": true,
+          "expansionEnabled": false,
+          "textSortable": false,
+          "analyzable": false
+        },
+        {
+          "name": "filename",
+          "returnable": true,
+          "freeTextSearchable": false,
+          "fieldSearchable": true,
+          "exactMatch": true,
+          "caseSensitive": false,
+          "spellSuggestionEnabled": true,
+          "expansionEnabled": false,
+          "textSortable": false,
+          "analyzable": false
+        },
+        {
+          "name": "filesize",
+          "returnable": true,
+          "freeTextSearchable": false,
+          "fieldSearchable": false,
+          "expansionEnabled": false,
+          "parametricSearchType": "Decimal",
+          "textSortable": false,
+          "analyzable": false
+        },
+        {
+          "name": "modifieddate",
+          "returnable": true,
+          "freeTextSearchable": false,
+          "fieldSearchable": false,
+          "expansionEnabled": false,
+          "parametricSearchType": "Date",
+          "textSortable": false,
+          "analyzable": false
+        },
+        {
+          "name": "title",
+          "returnable": true,
+          "freeTextSearchable": true,
+          "inSummary": false,
+          "fieldSearchable": true,
+          "exactMatch": false,
+          "caseSensitive": false,
+          "spellSuggestionEnabled": true,
+          "expansionEnabled": false,
+          "textSortable": false,
+          "analyzable": false
+        },
+        {
+          "name": "firstname",
+          "returnable": true,
+          "freeTextSearchable": true,
+          "inSummary": false,
+          "fieldSearchable": true,
+          "exactMatch": false,
+          "caseSensitive": false,
+          "spellSuggestionEnabled": true,
+          "expansionEnabled": false,
+          "textSortable": false,
+          "analyzable": false
+        }
+      ]
+    }
+  }
+}

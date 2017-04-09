@@ -6,9 +6,10 @@ task clean {
   delete "docs/spldoc", "build"
 }
 
+/*
 task release(type: GradleBuild) {
     buildFile 'release.gradle'
     tasks = ['release']
 }
-
+*/
 //build.finializedby docs

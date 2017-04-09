@@ -1,0 +1,31 @@
+namespace com.ibm.streamsx.watsonexplorer.sample ;
+
+use com.ibm.streamsx.watsonexplorer::PushText ;
+
+composite PushTextSample
+{
+	graph
+		(stream<rstring docId, rstring text, rstring firstname, rstring lastname, int32 age> Beacon_1_out0) as Beacon_1 = Beacon()
+		{
+			param
+				iterations : 10u;
+			output Beacon_1_out0:
+				docId = "streams_test_" + (rstring)IterationCount() + ".txt",
+				text = "This is sample text for a document.",
+				firstname = "Joe",
+				lastname = "Smith",
+				age = 12;  
+		}
+
+		() as AddText_Op = PushText(Beacon_1_out0)
+		{
+			param
+				host : getSubmissionTimeValue("host") ;
+				port : (int32)getSubmissionTimeValue("port", "8390") ;
+				collectionName : "test";
+				username : getSubmissionTimeValue("username");
+				password : getSubmissionTimeValue("password");
+				missingFieldPolicy : Warning;
+				fieldAttributeNames : "firstname", "lastname", "age" ; 
+		}
+}

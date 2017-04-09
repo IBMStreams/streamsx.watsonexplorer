@@ -1,0 +1,22 @@
+apply from: '../../common.gradle'
+
+task build {
+    doLast {
+        splMakeToolkit()
+        compileApp('com.ibm.streamsx.watsonexplorer.sample', 'PushTextSample', '../../com.ibm.streamsx.watsonexplorer')
+    }
+}
+
+task clean {
+    doLast {
+        splCleanToolkit()
+        delete 'output'
+    }
+}
+
+task buildWatsonExplorerToolkit(type: GradleBuild) {
+    buildFile = '../../com.ibm.streamsx.watsonexplorer/build.gradle'
+    tasks = ['build', 'buildToolkit']
+}
+
+build.dependsOn buildWatsonExplorerToolkit
