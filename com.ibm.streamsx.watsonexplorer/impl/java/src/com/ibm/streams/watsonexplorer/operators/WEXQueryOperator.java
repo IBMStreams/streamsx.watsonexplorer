@@ -117,7 +117,8 @@ public class WEXQueryOperator extends AbstractWEXOperator {
 		// Create a new tuple for output port 0
 		StreamingOutput<OutputTuple> outStream = getOutput(0);
 		OutputTuple outTuple = outStream.newTuple();
-
+		outTuple.assign(tuple);
+		
 		String query = queryAttribute == null ? tuple.getString(DEFAULT_QUERY_ATTR_NAME)
 				: queryAttribute.getValue(tuple);
 		RestParameters params = new RestParameters();
