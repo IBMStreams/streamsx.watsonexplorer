@@ -20,4 +20,16 @@ public class AdminError {
 		return message;
 	}
 	
+	public void setCode(String code) {
+		this.code = code;
+	}
+	
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+	
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
 }

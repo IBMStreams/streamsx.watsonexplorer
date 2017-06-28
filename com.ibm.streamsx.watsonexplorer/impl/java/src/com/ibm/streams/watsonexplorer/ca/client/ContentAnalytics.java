@@ -18,9 +18,11 @@ public class ContentAnalytics extends AbstractRestCall {
 
 	private static final String REST_V10_URL_PATH = "/api/v10";
 	private static final String REST_V20_URL_PATH = "/api/v20";
+
+	private static final String ADD_TEXT_PATH = "/admin/collections/indexer/document/add/text";
 	
 	private static final Logger logger = Logger.getLogger("ContentAnalytics.class");
-	private static final int MAX_RETRIES = 1;
+	private static final int MAX_RETRIES = 10;
 	
 	private WEXConnection connection;
 	private RestParameters staticParams;
@@ -144,14 +146,22 @@ public class ContentAnalytics extends AbstractRestCall {
 		}
 	}
 	
-	public String getSecurityToken() throws Exception {
-		String secToken = securityToken;
-		if(secToken == null || secToken.isEmpty()) {
+	private String getSecurityToken() throws Exception {
+		if(securityToken == null || securityToken.isEmpty()) {
 			logger.trace("Security token not found! Initiating login...");
-			secToken = adminLogin();
+			adminLogin();
 		}
 		
-		return secToken;
+		return securityToken;
+	}
+	
+	private void expireSecurityToken() throws Exception {
+		adminLogout();
+		securityToken = null;
+	}
+	
+	private boolean isAuthError(AdminError error) {
+		return AdminError.AUTH_ERROR_CODE.equalsIgnoreCase(error.getCode());
 	}
 	
 	private APIResponse adminAPICall(String apiUrl, RestParameters parameters) throws Exception {		
@@ -173,8 +183,11 @@ public class ContentAnalytics extends AbstractRestCall {
 			int statusCode = statusLine.getStatusCode();			
 			if(statusCode == 500) {
 				AdminError adminError = AdminApiUtil.parseErrorMessage(content);
-				if(AdminError.AUTH_ERROR_CODE.equalsIgnoreCase(adminError.getCode())) {
-					adminLogin(); // login again to get a new token
+				if(isAuthError(adminError)) {
+					// expire the old security token
+					// and acquire a new one
+					expireSecurityToken();
+					adminLogin();
 					
 					retriesRemaining--;
 					continue;
@@ -199,20 +212,22 @@ public class ContentAnalytics extends AbstractRestCall {
 		logger.trace("Starting adminAddText...");
 		logger.trace("adminAddText parameters=" + parameters);
 		
-		APIResponse response = adminAPICall("/admin/collections/indexer/document/add/text", parameters);
+		APIResponse response = adminAPICall(ADD_TEXT_PATH, parameters);
 		if(response.getStatus().getStatusCode() == 200) {
 			logger.trace("adminAddText SUCCESS!");
 			return true; // add text was successful
 		} else {
 			logger.trace("adminAddText FAILED!");
-			String errorMessage;
-			if(response.getStatus().getStatusCode() == 500) {
-				errorMessage = AdminApiUtil.parseErrorMessage(response.getContent()).getMessage();
+			
+			AdminError error = AdminApiUtil.parseErrorMessage(response.getContent());
+			String errorMessage = "";
+			if(error.getCode().equals("500") && isAuthError(error)) {
+				errorMessage = error.getMessage();
+				throw new AuthenticationException(errorMessage);
 			} else {
 				errorMessage = "Unexpected response (status code) from server: statusCode=" + response.getStatus().getStatusCode() + ", responseText=" + response.getContent();
+				throw new Exception(errorMessage);
 			}
-			
-			throw new AuthenticationException(errorMessage);
 		}
 	}
 	
