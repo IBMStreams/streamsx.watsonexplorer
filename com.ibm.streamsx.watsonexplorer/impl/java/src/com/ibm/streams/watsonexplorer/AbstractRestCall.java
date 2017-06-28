@@ -33,7 +33,7 @@ public abstract class AbstractRestCall {
 					String paramValue = getParamValue(key, value);
 					form.add(key, paramValue.trim());	
 				} catch(Exception e) {
-					logger.warn("Unsupported type for parameter '" + key + "'. Skipping parameter.");
+					logger.warn("Unsupported type for parameter '" + key + "': " + value + ". Skipping parameter.");
 					return;
 				}
 			});
@@ -49,7 +49,7 @@ public abstract class AbstractRestCall {
 					String paramValue = getParamValue(key, value);
 					params.add(new BasicNameValuePair(key, paramValue));	
 				} catch(Exception e) {
-					logger.warn("Unsupported type for parameter '" + key + "'. Skipping parameter.");
+					logger.warn("Unsupported type for parameter '" + key + "': " + value + ". Skipping parameter.");
 					return;
 				}
 			});

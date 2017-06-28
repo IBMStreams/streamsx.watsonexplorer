@@ -4,3 +4,4 @@
 /com.ibm.streamsx.watsonexplorer
 /opt
 .gradle
+/bin/

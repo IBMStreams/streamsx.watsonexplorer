@@ -13,12 +13,17 @@ import com.ibm.streams.operator.Tuple;
 import com.ibm.streams.operator.TupleAttribute;
 import com.ibm.streams.operator.OperatorContext.ContextCheck;
 import com.ibm.streams.operator.compile.OperatorContextChecker;
+import com.ibm.streams.operator.model.OutputPortSet;
+import com.ibm.streams.operator.model.OutputPorts;
 import com.ibm.streams.operator.model.Parameter;
 import com.ibm.streams.operator.model.PrimitiveOperator;
+import com.ibm.streams.operator.model.OutputPortSet.WindowPunctuationOutputMode;
 import com.ibm.streams.watsonexplorer.RestParameters;
 import com.ibm.streams.watsonexplorer.SearchResult;
 
 @PrimitiveOperator(name = "AnalyzeText", namespace = "com.ibm.streamsx.watsonexplorer", description = CAAnalyzeText.DESC)
+@OutputPorts({
+	@OutputPortSet(description = "Port that produces tuples", cardinality = 1, optional = false, windowPunctuationOutputMode = WindowPunctuationOutputMode.Generating)})
 public class CAAnalyzeText extends AbstractCAOperator {
 
 	private static final String DEFAULT_TEXT_ATTR_NAME = "text";

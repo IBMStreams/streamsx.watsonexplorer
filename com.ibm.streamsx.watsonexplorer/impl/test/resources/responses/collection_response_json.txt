@@ -1,0 +1,14 @@
+{
+  "es_apiResponse": {
+    "es_collection": [
+      {
+        "id": "col_12345",
+        "label": "test-collection",
+        "description": "",
+        "type": "Analytics",
+        "security": false,
+        "bigInsights": false
+      }
+    ]
+  }
+}

@@ -1,8 +1,6 @@
 package com.ibm.streams.watsonexplorer.operators;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.apache.http.auth.Credentials;
@@ -11,51 +9,44 @@ import org.apache.log4j.Logger;
 
 import com.ibm.streams.operator.AbstractOperator;
 import com.ibm.streams.operator.OperatorContext;
+import com.ibm.streams.operator.OperatorContext.ContextCheck;
 import com.ibm.streams.operator.StreamSchema;
 import com.ibm.streams.operator.StreamingData.Punctuation;
-import com.ibm.streams.operator.compile.OperatorContextChecker;
 import com.ibm.streams.operator.StreamingInput;
 import com.ibm.streams.operator.Tuple;
 import com.ibm.streams.operator.TupleAttribute;
-import com.ibm.streams.operator.OperatorContext.ContextCheck;
+import com.ibm.streams.operator.compile.OperatorContextChecker;
 import com.ibm.streams.operator.model.InputPortSet;
 import com.ibm.streams.operator.model.InputPortSet.WindowMode;
 import com.ibm.streams.operator.model.InputPortSet.WindowPunctuationInputMode;
 import com.ibm.streams.operator.model.InputPorts;
 import com.ibm.streams.operator.model.Libraries;
-import com.ibm.streams.operator.model.OutputPortSet;
-import com.ibm.streams.operator.model.OutputPortSet.WindowPunctuationOutputMode;
+import com.ibm.streams.operator.model.Parameter;
 import com.ibm.streams.watsonexplorer.RestParameters;
 import com.ibm.streams.watsonexplorer.WEXConnection;
 import com.ibm.streams.watsonexplorer.ca.client.CollectionsUtil;
 import com.ibm.streams.watsonexplorer.ca.client.ContentAnalytics;
-import com.ibm.streams.operator.model.OutputPorts;
-import com.ibm.streams.operator.model.Parameter;
 
 @InputPorts({
 		@InputPortSet(description = "Port that ingests tuples", cardinality = 1, optional = false, windowingMode = WindowMode.NonWindowed, windowPunctuationInputMode = WindowPunctuationInputMode.Oblivious)})
-@OutputPorts({
-		@OutputPortSet(description = "Port that produces tuples", cardinality = 1, optional = false, windowPunctuationOutputMode = WindowPunctuationOutputMode.Generating)})
 @Libraries({"opt/downloaded/*", "impl/lib/*"})
 public class AbstractCAOperator extends AbstractOperator {
 
 	private static final String DEFAULT_RESULT_ATTR_NAME = "result";
 	
-	private String host;
-	private Integer port;
-	private String username;
-	private String password;
-	private TupleAttribute<Tuple, String> collectionNameAttr;
-	private String collectionName;
-	private String outputFormat;
-	private String resultAttrName = DEFAULT_RESULT_ATTR_NAME;
-	private List<String> additionalParams;
+	protected String host;
+	protected Integer port;
+	protected String username;
+	protected String password;
+	protected TupleAttribute<Tuple, String> collectionNameAttr;
+	protected String collectionName;
+	protected String outputFormat;
+	protected String resultAttrName = DEFAULT_RESULT_ATTR_NAME;
+	protected List<String> additionalParams;
 
-	private Map<String, String> collectionNameCache;
-	
 	private Logger logger = Logger.getLogger(CASearchOperator.class);
 	protected ContentAnalytics caClient;
-	private WEXConnection connection;
+	protected WEXConnection connection;
 	private RestParameters staticParameters;
 
 	@Parameter(optional = true, description = "Specifies the name of the input attribute that contains the collection that the REST API call"
@@ -153,8 +144,6 @@ public class AbstractCAOperator extends AbstractOperator {
 		logger.trace("Operator " + context.getName() + " initializing in PE: "
 				+ context.getPE().getPEId() + " in Job: " + context.getPE().getJobId());
 		
-		collectionNameCache = new HashMap<String, String>();
-		
 		Credentials creds = null;
 		if(context.getParameterNames().contains("username") && context.getParameterNames().contains("password"))
 			creds = new UsernamePasswordCredentials(getUsername(), getPassword());
@@ -170,7 +159,7 @@ public class AbstractCAOperator extends AbstractOperator {
 	protected void initParameters(OperatorContext context) throws Exception {
 		
 		if(context.getParameterNames().contains("collectionName")) {
-			String collectionId = CollectionsUtil.getCollectionId(connection, collectionName);
+			String collectionId = getCollectionId(collectionName);
 			if(collectionId == null) {
 				throw new Exception("Unable to find collection with name: " + collectionName);
 			}
@@ -190,6 +179,10 @@ public class AbstractCAOperator extends AbstractOperator {
 		}
 	}
 
+	protected String getCollectionId(String collectionName) throws Exception {
+		return CollectionsUtil.getCollectionId(connection, collectionName);
+	}
+	
 	@ContextCheck(compile = true)
 	public static void checkParams(OperatorContextChecker checker) {
 		checker.checkExcludedParameters("collectionName", "collectionNameAttr");
@@ -215,7 +208,7 @@ public class AbstractCAOperator extends AbstractOperator {
 				+ context.getPE().getPEId() + " in Job: " + context.getPE().getJobId());
 	}	
 
-	protected void addCollectionName(RestParameters params, Tuple tuple) throws Exception {
+	protected String getDynamicCollectionName(Tuple tuple) throws Exception {
 		String collectionName;
 		if(getCollectionNameAttr() != null) {
 			collectionName = getCollectionNameAttr().getValue(tuple);
@@ -225,17 +218,16 @@ public class AbstractCAOperator extends AbstractOperator {
 			throw new Exception("Either the 'collectionName' or 'collectionNameAttr' parameters must be specified, "
 					+ "or an attribute named 'collectionName' must be present on the input port"); // should never here
 		}
+		
+		return collectionName;
+	}
+	
+	protected void addCollectionName(RestParameters params, Tuple tuple) throws Exception {
+		String collectionName = getDynamicCollectionName(tuple);
  		
-		String collectionId = null;
-		if(collectionNameCache.containsKey(collectionName)) {
-			collectionId = collectionNameCache.get(collectionName);
-		} else {
-			collectionId = CollectionsUtil.getCollectionId(connection, collectionName);			
-			if(collectionId != null) {
-				collectionNameCache.put(collectionName, collectionId);
-			} else if(collectionId == null) {
-				throw new Exception("Unable to find collection with name: " + collectionName);
-			}	
+		String collectionId = getCollectionId(collectionName);
+		if(collectionId == null) {
+			throw new Exception("Unable to find collection with name: " + collectionName);
 		}
 		
 		params.put("collection", collectionId);

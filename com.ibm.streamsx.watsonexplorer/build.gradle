@@ -1,23 +1,36 @@
 apply plugin: 'java'
+apply plugin: 'eclipse'
 apply from: '../common.gradle'
 
 sourceSets {
     main {
         java {
             srcDir 'impl/java/src'
+            output.classesDir = 'impl/java/bin'
         }
-    }   
+    }  
+    test {
+        java {
+            srcDir 'impl/test/src'
+        }
+    }
 }
 
 repositories { mavenCentral() }
 
 dependencies {
-    compile fileTree(dir: System.getenv("STREAMS_INSTALL") + '/lib', include: ['*.jar'])
+    compile files(System.getenv("STREAMS_INSTALL") + '/lib/com.ibm.streams.operator.jar', System.getenv("STREAMS_INSTALL") + '/lib/com.ibm.streams.operator.samples.jar')
+    //compile fileTree(dir: System.getenv("STREAMS_INSTALL") + '/lib', include: ['*streams*.jar'])
     compile group: 'org.apache.httpcomponents', name: 'fluent-hc', version: '4.5.2'
     compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
-	testCompile group: 'org.mock-server', name: 'mockserver-netty', version : '3.10.4'
+
+    testCompile group: 'org.mock-server', name: 'mockserver-netty', version : '3.10.4'
 	testCompile 'junit:junit:4.12'
     testCompile fileTree(dir: System.getenv("STREAMS_INSTALL") + '/toolkits/com.ibm.streamsx.topology/lib/', include: ['*.jar'])
+}
+
+test {
+    maxParallelForks=1
 }
 
 task buildToolkit() {
@@ -39,12 +52,6 @@ task getDeps(type: Copy) {
   exclude '*streams*'
 }
 
-task getTestDeps(type: Copy) {
-	from configurations.testCompile
-	into 'build/test'
-	exclude '*streams*'
-}
-
 task copyJarToImpl(type: Copy) {
     from fileTree(dir : 'build/libs', include : ['*.jar'])
     into 'impl/lib'
@@ -54,16 +61,19 @@ task deleteDeps {
     delete fileTree(dir: 'opt/downloaded', include: ['*'])
     delete fileTree(dir: 'lib', include: ['*.jar'])
     delete 'impl/java/bin'
+    delete fileTree(dir: 'impl/lib', include: ['*.jar'])
+    delete 'com.ibm.streamsx.watsonexplorer'
+    delete 'bin'
 }
 
-task runTests(type: GradleBuild) {
-   buildFile = '../tests/build.gradle'
-   tasks = ['test']
+test {
+    afterTest { desc, result -> 
+        println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
 }
 
-test.dependsOn buildToolkit, copyJarToImpl
-test.finalizedBy runTests
+
 build.dependsOn buildToolkit, copyJarToImpl
-compileJava.dependsOn getDeps
+build.finalizedBy getDeps
 clean.dependsOn cleanToolkit
 

@@ -7,8 +7,13 @@ import com.ibm.streams.operator.StreamSchema;
 import com.ibm.streams.operator.Tuple;
 import com.ibm.streams.operator.TupleAttribute;
 import com.ibm.streams.operator.compile.OperatorContextChecker;
+import com.ibm.streams.operator.model.OutputPortSet;
+import com.ibm.streams.operator.model.OutputPorts;
 import com.ibm.streams.operator.model.Parameter;
+import com.ibm.streams.operator.model.OutputPortSet.WindowPunctuationOutputMode;
 
+@OutputPorts({
+	@OutputPortSet(description = "Port that produces tuples", cardinality = 1, optional = false, windowPunctuationOutputMode = WindowPunctuationOutputMode.Generating)})
 public class AbstractSearchOperator extends AbstractCAOperator {
 
 	protected static final String DEFAULT_QUERY_ATTR_NAME = "query";
