@@ -3,7 +3,7 @@ task docs(type:Exec) {
 }
 
 task clean {
-  delete "docs/spldoc", "build"
+  delete "build"
 }
 
 /*
