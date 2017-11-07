@@ -3,7 +3,7 @@ Toolkit for accessing data and analytics results from IBM Watson Explorer (forme
 
 This toolkit has been developed and tested against Watson Explorer v11.0. 
 
-The SPLDoc for this toolkit can be found here here: [SPLDoc](https://ibmstreams.github.io/streamsx.watsonexplorer/spldoc/html/index.html)
+The SPLDoc for this toolkit can be found here here: [SPLDoc](https://ibmstreams.github.io/streamsx.watsonexplorer/spldoc/html)
 
 # Build
 
