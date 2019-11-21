@@ -1,4 +1,4 @@
-#Wed Jun 28 06:14:39 EDT 2017
+#Thu Nov 21 13:45:01 UTC 2019
 copytosourcelist=
 hreftargetslist=dita/tk$com.ibm.streamsx.watsonexplorer/op$com.ibm.streamsx.watsonexplorer$Search.xml,dita/tk$com.ibm.streamsx.watsonexplorer/ix$Operator.xml,dita/tk$com.ibm.streamsx.watsonexplorer/op$com.ibm.streamsx.watsonexplorer$WatsonExplorerQuery.xml,dita/toolkits/ix$Namespace.xml,dita/tk$com.ibm.streamsx.watsonexplorer/op$com.ibm.streamsx.watsonexplorer$SearchFacet.xml,dita/toolkits/ix$Operator.xml,dita/tk$com.ibm.streamsx.watsonexplorer/op$com.ibm.streamsx.watsonexplorer$PushText.xml,dita/tk$com.ibm.streamsx.watsonexplorer/ix$Namespace.xml,dita/tk$com.ibm.streamsx.watsonexplorer/op$com.ibm.streamsx.watsonexplorer$SearchPreview.xml,dita/tk$com.ibm.streamsx.watsonexplorer/tk$com.ibm.streamsx.watsonexplorer.xml,dita/tk$com.ibm.streamsx.watsonexplorer/op$com.ibm.streamsx.watsonexplorer$AnalyzeText.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.watsonexplorer/ns$com.ibm.streamsx.watsonexplorer.xml,dita/tk$com.ibm.streamsx.watsonexplorer/op$com.ibm.streamsx.watsonexplorer$WatsonExplorerPush.xml,dita/references/OperatorModel.xml
 fullditatopicfile=fullditatopic.list
@@ -37,7 +37,7 @@ codereffile=coderef.list
 keylist=
 codereflist=
 user.input.file.listfile=usr.input.file.list
-user.input.dir=/home/streamsadmin/git/streamsx.watsonexplorer/docs/spldoc
+user.input.dir=/home/streamsadmin/hostdir/git-public/streamsx.watsonexplorer/com.ibm.streamsx.watsonexplorer/doc/spldoc
 uplevels=../
 tempdirToinputmapdir.relative.value=dita/
 conrefpushfile=conrefpush.list
