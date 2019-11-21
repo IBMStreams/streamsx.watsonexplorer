@@ -69,7 +69,7 @@ public abstract class AbstractOperatorTest {
 	@Before
 	public void setup() throws Exception {
 		
-		Topology.STREAMS_LOGGER.setLevel(Level.ALL);
+		//Topology.STREAMS_LOGGER.setLevel(Level.ALL);
 		Topology.TOPOLOGY_LOGGER.setLevel(Level.ALL);
 		collectionResponseStr = new String(Files.readAllBytes(Paths.get(COLLECTION_RESPONSE_PATH)));
 		

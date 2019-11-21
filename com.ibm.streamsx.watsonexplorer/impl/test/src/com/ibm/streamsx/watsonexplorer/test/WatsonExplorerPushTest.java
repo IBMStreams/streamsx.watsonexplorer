@@ -24,7 +24,7 @@ import com.ibm.streamsx.topology.TStream;
 import com.ibm.streamsx.topology.context.StreamsContext;
 import com.ibm.streamsx.topology.context.StreamsContextFactory;
 import com.ibm.streamsx.topology.function.BiFunction;
-import com.ibm.streamsx.topology.internal.tester.TupleCollection;
+//import com.ibm.streamsx.topology.internal.tester.TupleCollection;
 import com.ibm.streamsx.topology.spl.JavaPrimitive;
 import com.ibm.streamsx.topology.spl.SPLStream;
 import com.ibm.streamsx.topology.spl.SPLStreams;
