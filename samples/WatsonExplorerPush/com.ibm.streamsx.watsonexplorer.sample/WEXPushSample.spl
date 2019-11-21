@@ -2,7 +2,7 @@ namespace com.ibm.streamsx.watsonexplorer.sample ;
 
 use com.ibm.streamsx.watsonexplorer::WatsonExplorerPush ;
 
-composite WEXPushSample
+public composite WEXPushSample
 {
 	graph
 		(stream<rstring data, rstring url> Beacon_1_out0) as Beacon_1 = Beacon()

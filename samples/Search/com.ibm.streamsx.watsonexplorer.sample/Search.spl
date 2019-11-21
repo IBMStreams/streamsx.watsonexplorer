@@ -5,7 +5,7 @@ use com.ibm.streamsx.watsonexplorer::Search ;
 /*
  * Demonstrates how to use the Search operator.
  */
-composite SearchSample
+public composite SearchSample
 {
 	graph
 		(stream<rstring result> Search_1_out0) as Search_1 = Search(Beacon_2_out0)

@@ -2,7 +2,7 @@ namespace com.ibm.streamsx.watsonexplorer.sample ;
 
 use com.ibm.streamsx.watsonexplorer::AnalyzeText ;
 
-composite AnalyzeTextSample
+public composite AnalyzeTextSample
 {
 	graph
 		(stream<rstring text> Beacon_1_out0) as Beacon_1 = Beacon()

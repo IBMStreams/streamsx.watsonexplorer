@@ -2,7 +2,7 @@ namespace com.ibm.streamsx.watsonexplorer.sample ;
 
 use com.ibm.streamsx.watsonexplorer::SearchFacet ;
 
-composite SearchFacetSample
+public composite SearchFacetSample
 {
 	graph
 		(stream<rstring query, rstring facet> Beacon_1_out0) as Beacon_1 = Beacon()

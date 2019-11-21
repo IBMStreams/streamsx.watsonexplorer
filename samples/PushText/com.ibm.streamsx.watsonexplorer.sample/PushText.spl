@@ -2,7 +2,7 @@ namespace com.ibm.streamsx.watsonexplorer.sample ;
 
 use com.ibm.streamsx.watsonexplorer::PushText ;
 
-composite PushTextSample
+public composite PushTextSample
 {
 	graph
 		(stream<rstring docId, rstring text, rstring firstname, rstring lastname, int32 age> Beacon_1_out0) as Beacon_1 = Beacon()

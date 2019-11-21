@@ -2,7 +2,7 @@ namespace com.ibm.streamsx.watsonexplorer.sample ;
 
 use com.ibm.streamsx.watsonexplorer::WatsonExplorerQuery ;
 
-composite WEXQuerySample
+public composite WEXQuerySample
 {
 	graph
 		(stream<rstring query> Beacon_1_out0) as Beacon_1 = Beacon()
