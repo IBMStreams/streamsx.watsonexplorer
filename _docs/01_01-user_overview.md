@@ -2,7 +2,7 @@
 title: "Toolkit Usage Overview"
 permalink: /docs/user/overview/
 excerpt: "How to use this toolkit."
-last_modified_at: 2020-08-13T12:37:48-04:00
+last_modified_at: 2020-08-13T16:37:48-04:00
 redirect_from:
    - /theme-setup/
 sidebar:
@@ -30,7 +30,8 @@ The foundational components provide federated discovery, navigation, and search 
 
 The analytical components, which are provided in Watson Explorer Advanced Edition, help analysts transform information into insights through visualizations that reveal trends, patterns, anomalies, and relationships. The analytical components also enable custom and domain-specific text analytics, which can enhance 360-degree view and content mining applications.
 
-(ref: http://www.ibm.com/support/knowledgecenter/SS8NLW/SS8NLW_welcome.html)
+(ref: [http://www.ibm.com/support/knowledgecenter/SS8NLW/SS8NLW_welcome.html](http://www.ibm.com/support/knowledgecenter/SS8NLW/SS8NLW_welcome.html))
+
 
 ## Watson Explorer Toolkit for Streams
 
